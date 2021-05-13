@@ -169,7 +169,7 @@
 
   <div class="tag-cloud">
 	  <div class="tag-cloud-tags" id="tags">
-		<a href="/tags/cookie-session/" style="font-size: 16px; color: #fff">cookie&session</a> <a href="/tags/java/" style="font-size: 16px; color: #fff">java</a> <a href="/tags/java-web/" style="font-size: 16px; color: #fff">java web</a> <a href="/tags/javaweb/" style="font-size: 16px; color: #fff">javaweb</a> <a href="/tags/%E4%BC%9A%E8%AF%9D%E6%8A%80%E6%9C%AF/" style="font-size: 16px; color: #fff">会话技术</a> <a href="/tags/%E6%A8%A1%E6%9D%BF%E6%8A%80%E6%9C%AF/" style="font-size: 16px; color: #fff">模板技术</a>
+		<a href="/tags/java/" style="font-size: 16px; color: #fff">java</a> <a href="/tags/javaweb/" style="font-size: 16px; color: #fff">javaweb</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 16px; color: #fff">框架</a> <a href="/tags/%E6%A8%A1%E6%9D%BF%E6%8A%80%E6%9C%AF/" style="font-size: 16px; color: #fff">模板技术</a> <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" style="font-size: 16px; color: #fff">消息队列</a>
 	  </div>
 	</div>
 	<br>
@@ -214,7 +214,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ou.wf0913.info/archives/0.html">
+    <link itemprop="mainEntityOfPage" href="https://ou.wf0913.info/archives/aadfeebe.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/930893138/images@master/20210510215933.jpg">
@@ -228,7 +228,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/archives/0.html" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/archives/aadfeebe.html" class="post-title-link" itemprop="url">Rabbitmq整合springboot</a>
         </h2>
 
         <div class="post-meta">
@@ -239,7 +239,16 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-11 16:15:00 / 修改时间：16:16:13" itemprop="dateCreated datePublished" datetime="2021-05-11T16:15:00+08:00">2021-05-11</time>
+              <time title="创建时间：2021-05-13 20:19:18 / 修改时间：20:26:08" itemprop="dateCreated datePublished" datetime="2021-05-13T20:19:18+08:00">2021-05-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">消息队列</span></a>
+                </span>
             </span>
 
           
@@ -250,14 +259,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>773</span>
+              <span>3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -269,34 +278,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>优化原因：性能低，速度慢，sql语句不是最优</p>
-<h4 id="注意：sql的编写过程和解析过程不一致"><a href="#注意：sql的编写过程和解析过程不一致" class="headerlink" title="注意：sql的编写过程和解析过程不一致"></a>注意：sql的编写过程和解析过程不一致</h4><h4 id="SQL优化：主要是索引的优化"><a href="#SQL优化：主要是索引的优化" class="headerlink" title="SQL优化：主要是索引的优化"></a>SQL优化：主要是索引的优化</h4><p>索引：是帮助Mysql 提高校获取数据的数据结构。索引是数据结构（树：B树，hash树）</p>
-<h4 id="索引的弊端："><a href="#索引的弊端：" class="headerlink" title="索引的弊端："></a>索引的弊端：</h4><p>1.索引本身很大，可以存放在内存/硬盘（通常硬盘）</p>
-<p>2.索引不是所有情况均适用：a.少量数据频繁修改的字段</p>
-<p>c.很少使用的字段</p>
-<p>3.索引提升查讯的效率，降低改动的效率</p>
-<h4 id="索引的优势："><a href="#索引的优势：" class="headerlink" title="索引的优势："></a>索引的优势：</h4><p>1，提高查询的效率（降低IO使用率）、</p>
-<p>2，降低CPU的使用：</p>
-<h4 id="Btree：一般是指B-，数据全部存放在叶节点中"><a href="#Btree：一般是指B-，数据全部存放在叶节点中" class="headerlink" title="Btree：一般是指B+，数据全部存放在叶节点中"></a>Btree：一般是指B+，数据全部存放在叶节点中</h4><h4 id="索引分类："><a href="#索引分类：" class="headerlink" title="索引分类："></a>索引分类：</h4><p>​    主键索引：不能重复。id    不能是null</p>
-<p>​    单值索引：单例，一个表可以有多个单值索引</p>
-<p>​    唯一索引：不重复。Id，    可以是null</p>
-<p>​    符合索引：多个列构成的索引（相当于二级目录）</p>
-<h4 id="创建索引："><a href="#创建索引：" class="headerlink" title="创建索引："></a>创建索引：</h4><h5 id="方法一：create-索引类型-索引名-on-表（字段）"><a href="#方法一：create-索引类型-索引名-on-表（字段）" class="headerlink" title="方法一：create  索引类型     索引名    on 表（字段）"></a>方法一：create  索引类型     索引名    on 表（字段）</h5><p>​    单值：</p>
-<p>​        create    index    dept_index    on    tb(dept)</p>
-<p>​    唯一：</p>
-<p>​        create    unique    index    name_index    on    tb（dept）;</p>
-<p>​    符合索引：</p>
-<p>​        create index    dept_index    on    tb(dept,name);</p>
-<h5 id="方法二：alter-table-表名-索引类型-索引名（字段）"><a href="#方法二：alter-table-表名-索引类型-索引名（字段）" class="headerlink" title="方法二：alter    table    表名    索引类型    索引名（字段）"></a>方法二：alter    table    表名    索引类型    索引名（字段）</h5><p>​    单值：</p>
-<p>​        alter     table    td    add    index    dept    index(dept)</p>
-<h4 id="删除索引："><a href="#删除索引：" class="headerlink" title="删除索引："></a>删除索引：</h4><h5 id="drop-index-索引名-on-表名；"><a href="#drop-index-索引名-on-表名；" class="headerlink" title="drop index 索引名 on 表名；"></a>drop index 索引名 on 表名；</h5><p>​        例：drop index name_index on tb ；</p>
-<h4 id="查询索引："><a href="#查询索引：" class="headerlink" title="查询索引："></a>查询索引：</h4><p>​    show index from 表名    ；</p>
-<p>​    show  index from 表名    \G    ；</p>
-<h4 id="SQL性能问题："><a href="#SQL性能问题：" class="headerlink" title="SQL性能问题："></a>SQL性能问题：</h4><p>​    a.分析SQL的执行计划    explain    ，可以模拟SQL优化器执行SQL语句，从而让开发人员，知道自己编写的SQL状况</p>
-<p>​    b.MySQL查询优化其会干扰我们的优化</p>
-<h5 id="查询执行计划：-explain-SQL语句"><a href="#查询执行计划：-explain-SQL语句" class="headerlink" title="查询执行计划：    explain+SQL语句"></a>查询执行计划：    explain+SQL语句</h5><p>​                                    explain    select    *    from    tb;</p>
-<p>​    </p>
-
+          <h1 id="RabbitMq的基本介绍和基本用法"><a href="#RabbitMq的基本介绍和基本用法" class="headerlink" title="RabbitMq的基本介绍和基本用法"></a>RabbitMq的基本介绍和基本用法</h1><h3 id="1-RabbitMQ简介"><a href="#1-RabbitMQ简介" class="headerlink" title="1.RabbitMQ简介"></a>1.RabbitMQ简介</h3><p>AMQP，即Advanced Message Queuing Protocol，高级消息队列协议，是<strong>应用层协议</strong>的一个开放标准，为面向消息的<a target="_blank" rel="noopener" href="http://www.diggerplus.org/archives/tag/%E4%B8%AD%E9%97%B4%E4%BB%B6">中间件</a>设计。消息中间件主要用于组件之间的解耦，消息的发送者无需知道消息使用者的存在，反之亦然。<br>AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。<br>RabbitMQ是一个开源的AMQP实现，服务器端用Erlang语言编写，支持多种客户端，如：Python、Ruby、.NET、Java、JMS、C、PHP、ActionScript、XMPP、STOMP等，支持AJAX。用于在分布式系统中存储转发消息，在易用性、扩展性、高可用性等方面表现不俗。<br>下面将重点介绍RabbitMQ中的一些基础概念，了解了这些概念，是使用好RabbitMQ的基础。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/aadfeebe.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -315,7 +305,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ou.wf0913.info/archives/0.html">
+    <link itemprop="mainEntityOfPage" href="https://ou.wf0913.info/archives/ee16cced.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/930893138/images@master/20210510215933.jpg">
@@ -329,7 +319,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/archives/0.html" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/archives/ee16cced.html" class="post-title-link" itemprop="url">jsp</a>
         </h2>
 
         <div class="post-meta">
@@ -340,7 +330,16 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-11 16:15:00 / 修改时间：16:16:13" itemprop="dateCreated datePublished" datetime="2021-05-11T16:15:00+08:00">2021-05-11</time>
+              <time title="创建时间：2021-05-13 20:19:01 / 修改时间：20:18:31" itemprop="dateCreated datePublished" datetime="2021-05-13T20:19:01+08:00">2021-05-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb/" itemprop="url" rel="index"><span itemprop="name">JavaWeb</span></a>
+                </span>
             </span>
 
           
@@ -351,14 +350,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>167</span>
+              <span>2.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -370,632 +369,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h5 id="查询数据库所用的引擎："><a href="#查询数据库所用的引擎：" class="headerlink" title="查询数据库所用的引擎："></a>查询数据库所用的引擎：</h5><p>​        1.支持那些引擎？ show engines</p>
-<p>​        2.查看当前使用的引擎 show variables like ‘% stroage_engine%’</p>
-<h5 id="修改数据库的默认引擎："><a href="#修改数据库的默认引擎：" class="headerlink" title="修改数据库的默认引擎："></a>修改数据库的默认引擎：</h5><p>在创建表时：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> td(</span><br><span class="line">	id <span class="type">int</span>(<span class="number">4</span>)</span><br><span class="line">	name <span class="type">varchar</span>(<span class="number">5</span>)</span><br><span class="line">	dept <span class="type">varchar</span>(<span class="number">5</span>)</span><br><span class="line">	</span><br><span class="line">)ENGINE <span class="operator">=</span> MyISAM ;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ou.wf0913.info/archives/0.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/930893138/images@master/20210510215933.jpg">
-      <meta itemprop="name" content="淡年华">
-      <meta itemprop="description" content="欢迎来到淡年华">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="淡年华">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/0.html" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-11 16:15:00 / 修改时间：16:16:13" itemprop="dateCreated datePublished" datetime="2021-05-11T16:15:00+08:00">2021-05-11</time>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>153</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="安装：rpm-ivh-rpm软件名"><a href="#安装：rpm-ivh-rpm软件名" class="headerlink" title="安装：rpm -ivh rpm软件名"></a>安装：rpm -ivh rpm软件名</h4><h4 id="如果提示“GPG-keys-…-“安装失败：rpm-ivh-rpm软件名-–force-–nodoeps"><a href="#如果提示“GPG-keys-…-“安装失败：rpm-ivh-rpm软件名-–force-–nodoeps" class="headerlink" title="如果提示“GPG keys … “安装失败：rpm -ivh rpm软件名 –force –nodoeps"></a>如果提示“GPG keys … “安装失败：rpm -ivh rpm软件名 –force –nodoeps</h4><h4 id="查看是否安装mysql"><a href="#查看是否安装mysql" class="headerlink" title="查看是否安装mysql:"></a>查看是否安装mysql:</h4><p>mysqladmin –version</p>
-<p>启动：service mysql start</p>
-<p>关闭：service mysql stop</p>
-<p>重启：service mysql restart</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ou.wf0913.info/archives/0.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/930893138/images@master/20210510215933.jpg">
-      <meta itemprop="name" content="淡年华">
-      <meta itemprop="description" content="欢迎来到淡年华">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="淡年华">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/0.html" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-11 16:15:00 / 修改时间：16:16:13" itemprop="dateCreated datePublished" datetime="2021-05-11T16:15:00+08:00">2021-05-11</time>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>214</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="DISTINCT-去重复"><a href="#DISTINCT-去重复" class="headerlink" title="DISTINCT 去重复"></a>DISTINCT 去重复</h3><p>例句：SELECT  DISTINCT * FROM student</p>
-<h3 id="模糊查询关键字like-（关键字-）"><a href="#模糊查询关键字like-（关键字-）" class="headerlink" title="模糊查询关键字like （关键字%）"></a>模糊查询关键字like （关键字%）</h3><p>例句：SELECT * FROM student where name like ‘李%’</p>
-<h3 id="对字段进行排序-ORDER-BY（默认升序，加desc变降序）"><a href="#对字段进行排序-ORDER-BY（默认升序，加desc变降序）" class="headerlink" title="对字段进行排序 ORDER BY（默认升序，加desc变降序）"></a>对字段进行排序 ORDER BY（默认升序，加desc变降序）</h3><p>例句：SELECT * FROM student ORDER BY math</p>
-<h3 id="COUNT-字段名）返回某字段不同的非NULL的值的数目"><a href="#COUNT-字段名）返回某字段不同的非NULL的值的数目" class="headerlink" title="COUNT(字段名）返回某字段不同的非NULL的值的数目"></a>COUNT(字段名）返回某字段不同的非NULL的值的数目</h3><h3 id="COUNT-它返回检索行的数目，-不论其是否包含-NULL值"><a href="#COUNT-它返回检索行的数目，-不论其是否包含-NULL值" class="headerlink" title="COUNT(*) 它返回检索行的数目， 不论其是否包含 NULL值"></a>COUNT(*) 它返回检索行的数目， 不论其是否包含 NULL值</h3>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ou.wf0913.info/archives/0.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/930893138/images@master/20210510215933.jpg">
-      <meta itemprop="name" content="淡年华">
-      <meta itemprop="description" content="欢迎来到淡年华">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="淡年华">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/0.html" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-11 16:15:00 / 修改时间：16:16:13" itemprop="dateCreated datePublished" datetime="2021-05-11T16:15:00+08:00">2021-05-11</time>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>119</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h5 id="连接层："><a href="#连接层：" class="headerlink" title="连接层："></a>连接层：</h5><h5 id="服务层："><a href="#服务层：" class="headerlink" title="服务层："></a>服务层：</h5><p>1.提供各种用户使用的接口（select..）</p>
-<p>2提供SQL优化器（Mysql QUery Optimizer)</p>
-<h5 id="引擎层："><a href="#引擎层：" class="headerlink" title="引擎层："></a>引擎层：</h5><p>InnoDB(mysql默认);物优先（适合高并发操作：行锁）</p>
-<p>MyISAM：性能优先（表锁）</p>
-<h5 id="存储层："><a href="#存储层：" class="headerlink" title="存储层："></a>存储层：</h5><p>存储数据</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ou.wf0913.info/archives/0.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/930893138/images@master/20210510215933.jpg">
-      <meta itemprop="name" content="淡年华">
-      <meta itemprop="description" content="欢迎来到淡年华">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="淡年华">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/0.html" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-11 16:15:00 / 修改时间：16:16:13" itemprop="dateCreated datePublished" datetime="2021-05-11T16:15:00+08:00">2021-05-11</time>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>619</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="数据源类型："><a href="#数据源类型：" class="headerlink" title="数据源类型："></a>数据源类型：</h3><h6 id="UMPOOLED：传统的JDBC模式（每次访问数据库，均需要打开、关闭等数据操作）"><a href="#UMPOOLED：传统的JDBC模式（每次访问数据库，均需要打开、关闭等数据操作）" class="headerlink" title="UMPOOLED：传统的JDBC模式（每次访问数据库，均需要打开、关闭等数据操作）"></a>UMPOOLED：传统的JDBC模式（每次访问数据库，均需要打开、关闭等数据操作）</h6><h6 id="POOLED：使用数据库连接池"><a href="#POOLED：使用数据库连接池" class="headerlink" title="POOLED：使用数据库连接池"></a>POOLED：使用数据库连接池</h6><h6 id="JINDI：从tomacat中获取一个内置的数据库连接池（数据库连接池-数据源）"><a href="#JINDI：从tomacat中获取一个内置的数据库连接池（数据库连接池-数据源）" class="headerlink" title="JINDI：从tomacat中获取一个内置的数据库连接池（数据库连接池-数据源）"></a>JINDI：从tomacat中获取一个内置的数据库连接池（数据库连接池-数据源）</h6><h3 id="事物提交方式："><a href="#事物提交方式：" class="headerlink" title="事物提交方式："></a>事物提交方式：</h3><h6 id="JDBC：利用JDBC方式处理事物（commit-rollback-close）【手工】"><a href="#JDBC：利用JDBC方式处理事物（commit-rollback-close）【手工】" class="headerlink" title="JDBC：利用JDBC方式处理事物（commit rollback close）【手工】"></a>JDBC：利用JDBC方式处理事物（commit rollback close）【手工】</h6><h6 id="MANAGED-将事物交由其他组件去托管（spring-jobss）【自动】默认关闭连接"><a href="#MANAGED-将事物交由其他组件去托管（spring-jobss）【自动】默认关闭连接" class="headerlink" title="MANAGED:将事物交由其他组件去托管（spring jobss）【自动】默认关闭连接"></a>MANAGED:将事物交由其他组件去托管（spring jobss）【自动】默认关闭连接</h6><h3 id="Mapper动态代理方式的crud（Mybatis接口开发）："><a href="#Mapper动态代理方式的crud（Mybatis接口开发）：" class="headerlink" title="Mapper动态代理方式的crud（Mybatis接口开发）："></a>Mapper动态代理方式的crud（Mybatis接口开发）：</h3><h5 id="原则：约定优先于配置"><a href="#原则：约定优先于配置" class="headerlink" title="原则：约定优先于配置"></a>原则：约定优先于配置</h5><h6 id="硬编码方式-lt-配置方式-lt-约定"><a href="#硬编码方式-lt-配置方式-lt-约定" class="headerlink" title="硬编码方式&lt;配置方式&lt;约定"></a>硬编码方式&lt;配置方式&lt;约定</h6><h3 id="约定："><a href="#约定：" class="headerlink" title="约定："></a>约定：</h3><h6 id="a-接口，接口中的方法必须遵循以下约定"><a href="#a-接口，接口中的方法必须遵循以下约定" class="headerlink" title="a.接口，接口中的方法必须遵循以下约定:"></a>a.接口，接口中的方法必须遵循以下约定:</h6><h6 id="1-方法名和mapper-xm1文件中标签的id值相同"><a href="#1-方法名和mapper-xm1文件中标签的id值相同" class="headerlink" title="1.方法名和mapper. xm1文件中标签的id值相同"></a>1.方法名和mapper. xm1文件中标签的id值相同</h6><h6 id="2-方法的输入参数和mapper-xml文件中标签的-parameterTypc类型一致3-方法的返回值和mapper-xm1文件中标签的-resultType类型一致"><a href="#2-方法的输入参数和mapper-xml文件中标签的-parameterTypc类型一致3-方法的返回值和mapper-xm1文件中标签的-resultType类型一致" class="headerlink" title="2.方法的输入参数和mapper.xml文件中标签的 parameterTypc类型一致3.方法的返回值和mapper.xm1文件中标签的`resultType类型一致"></a><em>2.方法的输入参数和mapper.xml文件中标签的 parameterTypc类型一致</em>3.方法的返回值和mapper.xm1文件中标签的`resultType类型一致</h6><h6 id="除了以上约定，要实现接口中的方法惇和，Mapper-xml中SQL标签一一对应，还需要以下1点-namespace的值，就是接口的全类名（接口-mapper-xml一一对应-儿配的过程-约定的过程"><a href="#除了以上约定，要实现接口中的方法惇和，Mapper-xml中SQL标签一一对应，还需要以下1点-namespace的值，就是接口的全类名（接口-mapper-xml一一对应-儿配的过程-约定的过程" class="headerlink" title="除了以上约定，要实现接口中的方法惇和，Mapper.xml中SQL标签一一对应，还需要以下1点:namespace的值，就是接口的全类名（接口- mapper. xml一一对应)儿配的过程:(约定的过程)"></a>除了以上约定，要实现接口中的方法惇和，Mapper.xml中SQL标签一一对应，还需要以下1点:namespace的值，就是接口的全类名（接口- mapper. xml一一对应)儿配的过程:(约定的过程)</h6><h6 id="1-根据接口名找到-mapper-xm1文件（根据的是namespace-接口全类名）"><a href="#1-根据接口名找到-mapper-xm1文件（根据的是namespace-接口全类名）" class="headerlink" title="1.根据接口名找到 mapper.xm1文件（根据的是namespace=接口全类名）"></a>1.根据接口名找到 mapper.xm1文件（根据的是namespace=接口全类名）</h6><h6 id="2-根据接口的方法名找到mapper-xml文件中的SQL标签-方法名-SQL标签Id值-2-根据接口的方法名找到mapper-xml文件中的SQL标签-方法名-SQL标签Id值"><a href="#2-根据接口的方法名找到mapper-xml文件中的SQL标签-方法名-SQL标签Id值-2-根据接口的方法名找到mapper-xml文件中的SQL标签-方法名-SQL标签Id值" class="headerlink" title="2.根据接口的方法名找到mapper.xml文件中的SQL标签(方法名=SQL标签Id值)2.根据接口的方法名找到mapper.xml文件中的SQL标签(方法名=SQL标签Id值)"></a>2.根据接口的方法名找到mapper.xml文件中的SQL标签(方法名=SQL标签Id值)2.根据接口的方法名找到mapper.xml文件中的SQL标签(方法名=SQL标签Id值)</h6>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ou.wf0913.info/archives/0.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/930893138/images@master/20210510215933.jpg">
-      <meta itemprop="name" content="淡年华">
-      <meta itemprop="description" content="欢迎来到淡年华">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="淡年华">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/0.html" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-11 16:15:00 / 修改时间：16:16:13" itemprop="dateCreated datePublished" datetime="2021-05-11T16:15:00+08:00">2021-05-11</time>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>83</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="："><a href="#：" class="headerlink" title="${}："></a>${}：</h3><h6 id="原样输出"><a href="#原样输出" class="headerlink" title="原样输出"></a>原样输出</h6><p>例如：</p>
-<h6 id="Student-则为：Student"><a href="#Student-则为：Student" class="headerlink" title="${Student}则为：Student"></a>${Student}则为：Student</h6><h6 id="适合用于静态sql"><a href="#适合用于静态sql" class="headerlink" title="适合用于静态sql"></a>适合用于静态sql</h6><h3 id="：-1"><a href="#：-1" class="headerlink" title="#{}："></a>#{}：</h3><h6 id="输出的内容加‘-’"><a href="#输出的内容加‘-’" class="headerlink" title="输出的内容加‘   ’"></a>输出的内容加‘   ’</h6><h6 id="例如：-Student-则为：Student"><a href="#例如：-Student-则为：Student" class="headerlink" title="例如：${Student}则为：Student"></a>例如：${Student}则为：Student</h6><h6 id="适用于动态sql"><a href="#适用于动态sql" class="headerlink" title="适用于动态sql"></a>适用于动态sql</h6>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ou.wf0913.info/archives/0.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/930893138/images@master/20210510215933.jpg">
-      <meta itemprop="name" content="淡年华">
-      <meta itemprop="description" content="欢迎来到淡年华">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="淡年华">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/0.html" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-11 16:15:00 / 修改时间：16:16:13" itemprop="dateCreated datePublished" datetime="2021-05-11T16:15:00+08:00">2021-05-11</time>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ou.wf0913.info/archives/0.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/930893138/images@master/20210510215933.jpg">
-      <meta itemprop="name" content="淡年华">
-      <meta itemprop="description" content="欢迎来到淡年华">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="淡年华">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/0.html" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-11 16:15:00 / 修改时间：16:16:13" itemprop="dateCreated datePublished" datetime="2021-05-11T16:15:00+08:00">2021-05-11</time>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="�������е���������Collection�бL���Ҫ�l����ӿ�"><a href="#�������е���������Collection�бL���Ҫ�l����ӿ�" class="headerlink" title="�������е���������Collection�бȽ���Ҫ�ļ����ӿ�  :"></a>�������е���������Collection<E>�бȽ���Ҫ�ļ����ӿ�  :</h2><h4 id="list�ӿ�-�¼������ok�����"><a href="#list�ӿ�-�¼������ok�����" class="headerlink" title="list�ӿ� �¼������õķ�����"></a>list�ӿ� �¼������õķ�����</h4><p>?        list�б�����������϶��������ҿ��ظ�������<br>?        ������ArraysList��LinkedList��</p>
-<h5 id="ArraysList-��"><a href="#ArraysList-��" class="headerlink" title="ArraysList ��"></a>ArraysList ��</h5><p>?            ÿһ������Ԫ�أ����ڴ��ж���Ҫ�������ڵ�λ�ã�<br>?            ÿ������Ԫ�ذ�������һ��Ԫ�ص��ڴ��ַ��������<br>?            ����Ԫ�ص�λ��ֱ�Ӽ�����ڴ��ַ��ֻ�ܰ�˳���ȡԪ�ء�<br>?        ��ȡһ���ض�λ��Ԫ�ص�ƽ��ʱ�临�Ӷ�ΪO(n)����Ҫ������Ϊ������<br>?            Java����LinkedListΪ������</p>
-<h5 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList :"></a>LinkedList :</h5><p>?            ���ڵ�����Ԫ�ش�������ڵ��ڴ��ַ�У������ڴ��ַ�������ġ�<br>?            ���Ը���Ԫ�ص�λ��ֱ�Ӽ�����ڴ��ַ��ֱ�ӽ��ж�ȡ��<br>?            ��ȡһ���ض�λ��Ԫ�ص�ƽ��ʱ�临�Ӷ�ΪO(1)��������˵��<br>?            ֻ�л�������ʵ�ֵļ��ϣ������������ԡ�<br>?            Java����ArrayListΪ������<br>?        Vector<E>:<br>?            Stack</p>
-<h5 id="Set-�ӿ�-��"><a href="#Set-�ӿ�-��" class="headerlink" title="Set �ӿ� ��"></a>Set �ӿ� ��</h5><p>?        Set����Ķ������벢�Ҳ��ظ��ġ�<br>?        ʹ�����HashSet(�����Ҳ��ظ�)��<br>?    HasMap��Hashtable�÷�����һ����Hashtable�̱߳Ƚϰ�ȫ��<br>?    ����Hashtable���̰߳�ȫ��Ҳ��synchronized�������ڵ��̻߳���������HashMapҪ����<br>?    ����㲻��Ҫͬ����ֻ��Ҫ��һ�̣߳���ôʹ��HashMap����Ҫ�ù�Hashtable��<br>Ҫע���һЩ��Ҫ���</p>
-<ol>
-<li><p>sychronized��ζ����һ�ν���һ���߳��ܹ�����Hashtable��<br>����˵�κ��߳�Ҫ����HashtableʱҪ���Ȼ��ͬ������������<br>��Ҫ�ȵ�ͬ�������ͷ�֮������ٴλ��ͬ��������Hashtable��</p>
-</li>
-<li><p>Fail-safe��iterator��������ء����ĳ�����϶��󴴽���Iterator<br>����ListIterator��Ȼ���������߳���ͼ���ṹ�ϡ����ļ��϶���<br>�����׳�ConcurrentModificationException�쳣���������߳̿���<br>ͨ��set()�������ļ��϶����������ģ���Ϊ�Ⲣû�дӡ��ṹ�ϡ�<br>���ļ��ϡ����Ǽ����Ѿ��ӽṹ�Ͻ����˸��ģ��ٵ���set()������<br>�����׳�IllegalArgumentException�쳣��</p>
-</li>
-<li><p>�ṹ�ϵĸ���ָ����ɾ�����߲���һ��Ԫ�أ�������Ӱ�쵽map�Ľṹ</p>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ou.wf0913.info/archives/0.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/930893138/images@master/20210510215933.jpg">
-      <meta itemprop="name" content="淡年华">
-      <meta itemprop="description" content="欢迎来到淡年华">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="淡年华">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/0.html" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-11 16:15:00 / 修改时间：16:16:13" itemprop="dateCreated datePublished" datetime="2021-05-11T16:15:00+08:00">2021-05-11</time>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>33</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="tomcat解压后目录：的各种包的作用"><a href="#tomcat解压后目录：的各种包的作用" class="headerlink" title="tomcat解压后目录：的各种包的作用"></a>tomcat解压后目录：的各种包的作用</h3><p><img data-src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1593157648266.png" alt="1593157648266"></p>
-<h3 id="服务器-访问异常"><a href="#服务器-访问异常" class="headerlink" title="服务器  访问异常"></a>服务器  访问异常</h3><p><img data-src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1593162990279.png" alt="1593162990279"></p>
-<h3 id="何时重启服务器"><a href="#何时重启服务器" class="headerlink" title="何时重启服务器"></a>何时重启服务器</h3><p><img data-src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1593438014213.png" alt="1593438014213"></p>
-
+          <h1 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h1><p>Java Server Pages :java 服务器端页面</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">本质上是Servlet</span><br><span class="line">jsp会先转换成Java代码,之后编译成class文件</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/ee16cced.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1012,9 +395,6 @@
 
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
 
 
 
@@ -1081,7 +461,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1094,7 +474,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1133,12 +513,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">24k</span>
+    <span title="站点总字数">6k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">22 分钟</span>
+    <span title="站点阅读时长">5 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
