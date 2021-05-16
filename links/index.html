@@ -289,18 +289,6 @@
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
   </nav>
 </div>
   <div class="cc-license motion-element" itemprop="license">
@@ -424,12 +412,28 @@
 
 <script>
 NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js', () => {
+
+    let friends = [];
+    let master = '9bf8fbe552d99001ac18ca58f6f6b64e';
+    let tagMeta = '博主,小伙伴,访客'.split(',')
+
     var GUEST = ['nick', 'mail', 'link'];
     var guest = 'nick,mail,link';
     guest = guest.split(',').filter(item => {
       return GUEST.includes(item);
     });
+
+    $.ajax({
+      async:false,
+      url:'/links/linklist.json',
+      success(response){
+        for(let i=0;i<response.length;i++){
+          friends[i]=response[i].email;
+        }
+      }
+    })
+
     new Valine({
       el         : '#valine-comments',
       verify     : false,
@@ -444,7 +448,10 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       lang       : '' || 'zh-cn',
       path       : location.pathname,
       recordIP   : false,
-      serverURLs : ''
+      serverURLs : '',
+      master: master,
+      friends: friends,
+      tagMeta: tagMeta
     });
   }, window.Valine);
 });
